@@ -1,22 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   font-family: "Outfit", sans-serif;
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-  --color-primary: #e6ccff;
+  --color-primary: #E6CCFF;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.reset-tw :not(pre):not(code) {
+  all: revert;
 }
 
 /* Hide scrollbar but keep scroll working */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE & Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari */
+  display: none;
+  /* Chrome, Safari */
 }

@@ -28,5 +28,7 @@ npm install react-router-dom
 npm run dev
 npm install tailwindcss @tailwindcss/vite
 npm install moment
+npm install react-markdown
+npm install prismjs
 
-01:09:44
+1:34:33
