@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { dummyPublishedImages } from "../assets/assets";
+import Loading from "./Loading";
 
 const Community = () => {
 
@@ -15,7 +16,7 @@ const Community = () => {
     fetchImages()
   }, [])
 
-if (loading) return <p>Loading...</p>
+  if (loading) return <Loading />
 
   return (
     <div className="p-6 pt-12 xl:px-12 2xl:px-20 w-full mx-auto h-full overflow-y-scroll">
@@ -24,9 +25,9 @@ if (loading) return <p>Loading...</p>
       {images.length > 0 ? (
         <div className="flex flex-wrap max-sm:justify-center gap-5">
           {images.map((item, index) => (
-            <a href="" className="relative group block rounded-lg overflow-hidden border-gray-200 dark:border-purple-700 shadow-sm hover:shadow-md transition-shadow duration-300" >
+            <a key={index} href={item.imagesUrl} target="_blank" className="relative group block rounded-lg overflow-hidden border-gray-200 dark:border-purple-700 shadow-sm hover:shadow-md transition-shadow duration-300" >
               <img src={item.imagesUrl} alt="" className="w-full h-40 md:h-50 2xl:h-62 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out" />
-            <p className="absolute bottom-0 right-0 text-xs bg-black/50 backdrop-blur text-white px-4 py-1 rounded-tl-xl opacity-0 group-hover:opacity-100 transition duration-300">Created by {item.userName}</p>
+              <p className="absolute bottom-0 right-0 text-xs bg-black/50 backdrop-blur text-white px-4 py-1 rounded-tl-xl opacity-0 group-hover:opacity-100 transition duration-300">Created by {item.userName}</p>
             </a>
           ))}
         </div>
