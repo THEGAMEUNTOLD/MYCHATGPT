@@ -29,14 +29,14 @@ const App = () => {
             <SideBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             <Routes>
               <Route path="/" element={<ChatBox />} />
-              <Route path="/Community" element={<Community />} />
+              <Route path="/community" element={<Community />} />
               <Route path="/credits" element={<Credits />} />
             </Routes>
           </div>
         </div>
 
       ) : (
-        <div className="bg-gradient-to-b from-[#242124] to-[#000000] flex items-center justify-center h-screen w-screen">
+        <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] flex items-center justify-center h-screen w-screen">
           <Login/>
         </div>
       )}

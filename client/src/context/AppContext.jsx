@@ -13,7 +13,7 @@ export const AppContextProvider = ({ children }) => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
     const fetchUser = async () => {
-        setUser()
+        setUser(dummyUserData)
     }
 
     const fetchUsersChats = async () => {
@@ -54,4 +54,4 @@ export const AppContextProvider = ({ children }) => {
     )
 }
 
-export const useAppContext = () => useContext(AppContext)
+export const useAppContext = () => useContext(AppContext);
