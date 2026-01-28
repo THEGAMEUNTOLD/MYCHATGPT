@@ -15,34 +15,55 @@ const App = () => {
   const { user } = useAppContext()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { pathname } = useLocation()
+  // const { pathname } = useLocation()
 
-  if (pathname === '/Loading') return <Loading />
+  // if (pathname === '/Loading') return <Loading />
+
+  if (!user) {
+    return (
+      <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] flex items-center justify-center h-screen w-screen">
+        <Login />
+      </div>
+    );
+  }
 
   return (
-    <>
-      {!isMenuOpen && <img src={assets.menu_icon} className="absolute top-3 left-3 w-8 h-8 cursor-pointer md:hidden not-dark:invert" onClick={() => setIsMenuOpen(true)} />}
+    <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] dark:text-white">
 
-      {user ? (
-        <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] dark:text-white">
-          <div className="flex h-screen w-screen ">
-            <SideBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-            <Routes>
-              <Route path="/" element={<ChatBox />} />
-              <Route path="/community" element={<Community />} />
-              <Route path="/credits" element={<Credits />} />
-            </Routes>
-          </div>
-        </div>
+      {!isMenuOpen && (
+        <img
+          src={assets.menu_icon}
+          className="absolute top-3 left-3 w-8 h-8 cursor-pointer md:hidden not-dark:invert"
+          onClick={() => setIsMenuOpen(true)}
 
-      ) : (
-        <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] flex items-center justify-center h-screen w-screen">
-          <Login/>
-        </div>
+        />
       )}
 
+      {/* {user ? ( */}
+      {/* <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] dark:text-white"> */}
 
-    </>
+      <div className="flex h-screen w-screen ">
+        <SideBar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+        <Routes>
+          <Route path="/" element={<ChatBox />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/credits" element={<Credits />} />
+          <Route path="/loading" element={<Loading />} />
+        </Routes>
+      </div>
+    </div>
+
+  // ): 
+  // (
+  //   <div className="dark:bg-gradient-to-b from-[#242124] to-[#000000] flex items-center justify-center h-screen w-screen">
+  //     <Login />
+  //   </div>
+  // )
+// };
+
+
+    // </div >
   );
 };
 

@@ -15,7 +15,7 @@ const Credits = () => {
   }, [])
   return (
     <div className="max-w-7xl h-screen overflow-y-scroll mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 className="text-3xl font-semibold text-center md-10 xl:mt-30 text-gray-800 dark:text-white">Credit Plans</h2>
+      <h2 className="text-3xl font-semibold text-center mt-10 xl:mt-30 text-gray-800 dark:text-white">Credit Plans</h2>
 
       <div className="flex flex-wrap justify-center gap-8">
         {plans.map((plan) => (

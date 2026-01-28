@@ -44,6 +44,7 @@ export const AppContextProvider = ({ children }) => {
         fetchUser()
     }, [])
 
+
     const value = { navigate, user, setUser, fetchUser, chats, setChats, selectedChat, setSelectedChat, theme, setTheme }
 
     return (
